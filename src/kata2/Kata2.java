@@ -11,16 +11,11 @@ public class Kata2 {
         for (int i = 0; i < data.length; i++) {
             data[i] = rand.nextInt(15);
         }
-        HashMap<Integer, Integer> histogram = new HashMap<>();
-
-        for (int key : data) {
-            histogram.put(key, histogram.containsKey(key) ? histogram.get(key) + 1 : 1);
-        }
         
-        histogram.keySet().forEach((key) -> {
-            System.out.println(key + "==>" + histogram.get(key));
+        Histogram histogram = new Histogram(data);
+        Map<Integer, Integer> histogr = histogram.getHistogram();
+        histogr.keySet().forEach((key) -> {
+            System.out.println(key + "==>" + histogr.get(key));
         });
-
     }
-
 }
